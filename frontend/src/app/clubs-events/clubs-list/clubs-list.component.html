@@ -1,0 +1,54 @@
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a mat-tab-link *ngFor="let link of links" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+    [routerLinkActiveOptions]="{exact: false}" [active]="rla.isActive">{{ link.label }}</a>
+</nav>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+
+
+<div>
+  <table mat-table style="padding-top: 16px; padding-right: 16px; padding-left: 16px;" [dataSource]="clubDataSource">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let club">{{club.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="clubName">
+      <th mat-header-cell *matHeaderCellDef>Club Name</th>
+      <td mat-cell *matCellDef="let club">{{club.club_name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let club">{{club.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="leadership">
+      <th mat-header-cell *matHeaderCellDef>Leadership</th>
+      <td mat-cell *matCellDef="let club">{{club.leadership}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="link">
+      <th mat-header-cell *matHeaderCellDef>Link</th>
+      <td mat-cell *matCellDef="let club">
+        <a id="link" href="{{club.link}}">{{club.link}}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="viewMore">
+      <th mat-header-cell *matHeaderCellDef>View More</th>
+      <td mat-cell *matCellDef="let club">
+        <button mat-button (click)="openDialog(club.id)" >View More</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="clubColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: clubColumns;"></tr>
+  </table>
+</div>
+
+<br>
+<button mat-stroked-button style="left:50%;-ms-transform: translateX(-50%);transform: translateX(-50%);" color="primary"
+  routerLink="/clubs-events/club-registration">REGISTER NEW CLUB</button>

@@ -1,0 +1,55 @@
+<div >
+    <table mat-table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let club">{{club.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="clubName">
+        <th mat-header-cell *matHeaderCellDef>Club Name</th>
+        <td mat-cell *matCellDef="let club">{{club.club_name}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let club">{{club.email}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="leadership">
+        <th mat-header-cell *matHeaderCellDef>Leadership</th>
+        <td mat-cell *matCellDef="let club">{{club.leadership}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="link">
+        <th mat-header-cell *matHeaderCellDef>Link</th>
+        <td mat-cell *matCellDef="let club">{{club.link}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="approval">
+        <th mat-header-cell *matHeaderCellDef>Approval Status</th>
+        <td mat-cell *matCellDef="let club">
+          <button mat-button color="primary" *ngIf="!club.approved" (click)="approveClub(club)">Approve</button>
+          <span *ngIf="club.approved">Approved</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef="">Update Club</th>
+        <td mat-cell *matCellDef="let club">
+          <button mat-stroked-button color="primary" (click)="openUpdateDialog(club)">Update</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef="">Delete Club</th>
+        <td mat-cell *matCellDef="let club">
+          <button mat-button color="primary" (click)="deleteClub(club)">Delete</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="clubColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: clubColumns;"></tr>
+    </table>
+  </div>
+  

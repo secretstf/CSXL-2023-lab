@@ -1,0 +1,15 @@
+<body style="background-color: #4786C6;">
+    <div class="club-info" style="background-color: #4786C6; color: white; padding: 2rem; border-radius: 10px;">
+      <h1 class="club-title" style="font-size: 2rem; margin-bottom: 1rem;">{{ data.club_name }}</h1>
+  
+      <div class="club-details">
+        <p class="club-info-text"><strong>Email:</strong> {{ data.email }}</p>
+        <p class="club-info-text"><strong>Leadership:</strong> {{ data.leadership }}</p>
+        <p class="club-info-text link" ><strong>Link:</strong> <a href="{{ data.link }}">{{ data.link }}</a></p>
+      </div>
+  
+      <button class="close-button" mat-button (click)="closeDialog()" style="background-color: white; color: #336699; margin-top: 2rem; border-radius: 5px;">Close</button>
+    </div>
+  </body>
+  
+

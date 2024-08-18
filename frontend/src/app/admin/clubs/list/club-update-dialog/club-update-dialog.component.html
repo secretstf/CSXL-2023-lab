@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Update Club</h1>
+<div mat-dialog-content>
+  <form [formGroup]="updateForm">
+    <mat-form-field>
+      <input matInput formControlName="clubName" placeholder="Club Name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="email" placeholder="Email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="leadership" placeholder="Leadership">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="link" placeholder="Link">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>
+</div>

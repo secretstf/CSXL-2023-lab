@@ -1,0 +1,13 @@
+#link {
+  color: white;
+  text-decoration: none;
+}
+
+#link:visited {
+  color: white;
+}
+
+#link:hover {
+  color: darkgrey;
+  text-decoration: underline;
+}
